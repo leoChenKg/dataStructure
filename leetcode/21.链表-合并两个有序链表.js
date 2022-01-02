@@ -80,4 +80,6 @@ var mergeTwoLists1 = function (l1, l2) {
   next(h1, h2)
   return res.next
 }
-console.log(JSON.stringify(mergeTwoLists1(l1, l2)))
+
+
+

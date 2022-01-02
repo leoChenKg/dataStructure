@@ -10,7 +10,7 @@
  * 1. 一直到最后  i+1 === j && arr[i] === arr[j]
  * 2. 一直到最后  i === j
  *
- * 则找到了
+ * 则找到了 
  *
  */
 // var longestPalindrome = function (s) {
