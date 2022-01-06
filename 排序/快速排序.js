@@ -1,6 +1,11 @@
 // http://www.ruanyifeng.com/blog/2011/04/quicksort_in_javascript.html?bsh2%E3%80%81_bid=124324679
 
 // https://zhuanlan.zhihu.com/p/90233641
+/**
+ * 1.首先选取一个基准值
+ * 2.然后把比该值大的发在一边，比该值小的放一边
+ * 3.最后在两边的数据中重复进行1、2步骤
+ */
 function quickSort(arr) {
   if (arr.length <= 1) {
     return arr
@@ -29,9 +34,9 @@ function quickSort(R, lo, hi) {
   if (i < j) {
     temp = R[i]
     while (i != j) {
-      while (j > i && R[j] <= temp) --j
+      while (j > i && R[j] >= temp) --j
       R[i] = R[j]
-      while (j > i && R[i] >= temp) ++i
+      while (j > i && R[i] <= temp) ++i
       R[j] = R[i]
     }
     R[i] = temp
