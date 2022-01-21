@@ -1,4 +1,4 @@
-0.1 * 2  0.2    0
+<!-- 0.1 * 2  0.2    0
 0.2 * 2  0.4    0
 0.4 * 2  0.8    0
 0.8 * 2  1.6    1
@@ -8,4 +8,53 @@
 0.8 * 2  1.6    1
 
 0.0001100110011001100110011001100
-1.1001 * 2**(-4)
+1.1001 * 2**(-4) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+      #main {
+        display: flex;
+      }
+      #left {
+        height: 50px;
+        flex: 1;
+        background: red;
+      }
+      #middle {
+        flex: 2;
+        height: 50px;
+      }
+      #middle div {
+          width: 50%;
+          height: 25px;
+          box-sizing: border-box;
+      }
+      #right {
+        flex: 1;
+        height: 50px;
+        background: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="left">A</div>
+      <div id="middle">
+        <div style="float:left;border-right:1px solid;border-bottom:1px solid ">1</div>
+        <div style="float:right;border-left:1px solid;border-bottom:1px solid ">2</div>
+        <div style="float:left;border-right:1px solid;border-top:1px solid ">3</div>
+        <div style="float:right;border-left:1px solid ;border-top:1px solid ">4</div>
+      </div>
+      <div id="right">B</div>
+    </div>
+  </body>
+</html>
