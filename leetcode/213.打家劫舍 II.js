@@ -29,4 +29,27 @@ var rob = function (nums) {
   return Math.max(preFn(nums.slice(0, nums.length - 1)), preFn(nums.reverse().slice(0, nums.length - 1)))
 }
 
+var rob = function (nums) {
+  let len = nums.length
+  if (len < 2) return nums[0]
+
+  function robI(nums) {
+    let n = nums.length
+    if (n === 1) return nums[0]
+    if (n === 2) return Math.max(nums[0], nums[1])
+    let pre = nums[0]
+    let cur = Math.max(nums[0], nums[1])
+    let res
+    for (let index = 2; index < n; index++) {
+      res = Math.max(pre + nums[index], cur)
+      pre = cur
+      cur = res
+    }
+
+    return res
+  }
+
+  return Math.max(robI(nums.slice(0, nums.length - 1)), robI(nums.reverse().slice(0, nums.length - 1)))
+}
+
 console.log(rob([7, 6, 3, 1, 1, 4, 5, 100, 1, 0, 45, 67, 45, 24, 5, 6, 7, 8, 19, 100, 390, 34, 5, 7, 8, 234, 234, 24, 65]))

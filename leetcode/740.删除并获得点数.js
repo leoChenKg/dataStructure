@@ -10,12 +10,13 @@
  * [2,3,3,3,3,4,4,5,6,6,7,7,7,8,9]
  * [2,2,2,2,2,2,2,2,2,2,3,3,3,3,4,4,5,6,6,7,7,7,8,9]
  *
- * 先删除最多的 x。如果最多的 x-1 或者 x+1 也是重复的 ，计算这三个最大值 ,删除得到最大值的数获得其点数
+ * 根据数字计算他最终对应的点数，重复的就叠加起来 得到一个以数值为建 叠加点数为值的数组 sum
+ * 把 sum 中空的位置 用 0 补上，然后就是 198.打家劫舍的思路了
+ *
  *
  */
 var deleteAndEarn = function (nums) {
   let sum = []
-
   for (let i = 0; i < nums.length; i++) {
     sum[nums[i]] = sum[nums[i]] ? sum[nums[i]] + nums[i] : nums[i]
   }
@@ -28,22 +29,19 @@ var deleteAndEarn = function (nums) {
 }
 
 var rob = function (nums) {
-  let len = nums.length
-  if (len < 2) return nums[0]
-
-  let dp = []
-  dp[0] = nums[0]
-  dp[1] = Math.max(nums[0], nums[1])
-
-  for (let i = 2; i < len; i++) {
-    let p = i - 2
-    let max = dp[i - 2]
-    while (p-- >= 0) if (dp[p] > max) max = dp[p]
-
-    dp[i] = max + nums[i]
-    if (dp[i] > max) max = dp[i]
+  let n = nums.length
+  if (n === 1) return nums[0]
+  if (n === 2) return Math.max(nums[0], nums[1])
+  let pre = nums[0]
+  let cur = Math.max(nums[0], nums[1])
+  let res
+  for (let index = 2; index < n; index++) {
+    res = Math.max(pre + nums[index], cur)
+    pre = cur
+    cur = res
   }
-  return Math.max(dp[len - 1], dp[len - 2])
+
+  return res
 }
 
 console.log(deleteAndEarn([3, 1]))

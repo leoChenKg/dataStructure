@@ -2,7 +2,8 @@
  * @param {number[]} cost
  * @return {number}
  *
- * 给你一个整数数组 cost ，其中 cost[i] 是从楼梯第 i 个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬1个或者2个台阶。
+ * 给你一个整数数组 cost ，其中 cost[i] 是从楼梯第 i 个台阶向上爬需要支付的费用。
+ * 一旦你支付此费用，即可选择向上爬1个或者2个台阶。
  * 你可以选择从下标为 0 或下标为 1 的台阶开始爬楼梯。
  * 请你计算并返回达到楼梯顶部的最低花费。
  *
@@ -33,6 +34,17 @@ var minCostClimbingStairs = function (cost) {
     curr = next
   }
   return curr
+}
+
+// dp[n] = Math.min(dp[n-1], dp[n-2] + cost[n])
+var minCostClimbingStairs = function (cost) {
+  let dp = [cost[0], Math.min(cost[0], cost[1])]
+
+  for (let index = 2; index < cost.length; index++) {
+    dp[index] = Math.min(dp[index - 1], dp[index - 2] + cost[index])
+  }
+
+  console.log(dp)
 }
 
 console.log(minCostClimbingStairs([0, 3, 3, 1]))
