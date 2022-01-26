@@ -70,12 +70,16 @@ var canJump = function (nums) {
 }
 
 /**
- * 贪心算法
+ * 最优解
+ * 循环的时候 直接计算出当前能够到达最远得下标 ，
+ * 如果出现当前能够到达最远的下标 >= 最大的下标，说明可以到达，
+ * 反之不行
  */
 
 function canJump(nums) {
   let n = nums.length
   let rightmost = 0
+
   for (let i = 0; i < n; ++i) {
     if (i <= rightmost) {
       rightmost = Math.max(rightmost, i + nums[i])
