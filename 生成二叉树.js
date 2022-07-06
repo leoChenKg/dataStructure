@@ -38,6 +38,7 @@ function genTree(list) {
   return head
 }
 
+
 module.exports = { genTree,TreeNode }
 /**
  *

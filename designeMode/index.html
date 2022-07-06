@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div id="box">
+        <img width="430" height="430" />
+        <p>
+          content conten tc onten tco ntentconte ntcontentc onten tcontent con tentco ntent conten tcon tentc ontent conten tconte ntcont entco nt entc ont en
+          tcon ten tcon ten tc ontentcon tent conte ntc ontentc ontentc ont entconten tcont entco nt entco ntentc onte ntc ontentconte ntcont ent
+        </p>
+      </div>
+    </div>
+    <script>
+      function loadImg(imgDom, targetSrc) {
+        imgDom.src = './imgs/loading.gif'
+
+        let tempImg = document.createElement('img')
+        tempImg.src = targetSrc
+        tempImg.onload = function () {
+          imgDom.src = targetSrc
+        }
+      }
+      loadImg(document.getElementsByTagName('img')[0],'https://github.githubassets.com/images/modules/site/home/globe.jpg')
+    </script>
+  </body>
+</html>

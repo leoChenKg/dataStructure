@@ -81,13 +81,13 @@ var maxSubArray = function (nums) {
 
 // https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/
 // 动态规划
-var maxSubArray = function(nums) {
-    let pre = 0, maxAns = nums[0];
-    nums.forEach((x) => {
-        pre = Math.max(pre + x, x);
-        maxAns = Math.max(maxAns, pre);
-    });
-    return maxAns;
-};
-
-console.log(maxSubArray([0,3,-1]))
+var maxSubArray = function (nums) {
+  let pre = 0
+  let maxAns = nums[0]
+  nums.forEach(x => {
+    pre = Math.max(pre + x, x)
+    maxAns = Math.max(maxAns, pre)
+  })
+  return maxAns
+}
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
